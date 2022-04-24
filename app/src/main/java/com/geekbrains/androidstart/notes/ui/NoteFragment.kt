@@ -1,20 +1,28 @@
-package com.geekbrains.androidstart.notes
+package com.geekbrains.androidstart.notes.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import com.geekbrains.androidstart.notes.R
+import com.geekbrains.androidstart.notes.databinding.FragmentNoteBinding
+import com.geekbrains.androidstart.notes.pojo.Note
 
 class NoteFragment : Fragment() {
+
+    private lateinit var binding: FragmentNoteBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_note, container, false)
+    ): View {
+        super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_note, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

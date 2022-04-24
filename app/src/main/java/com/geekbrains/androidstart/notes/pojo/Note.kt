@@ -1,4 +1,4 @@
-package com.geekbrains.androidstart.notes
+package com.geekbrains.androidstart.notes.pojo
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
