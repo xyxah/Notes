@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/notesFragment"
         android:name="com.geekbrains.androidstart.notes.ui.NotesFragment"
-        android:label="NotesFragment" >
+        android:label="NotesFragment">
         <action
             android:id="@+id/action_notesFragment_to_noteFragment"
             app:destination="@id/noteFragment" />
@@ -16,6 +16,7 @@
             android:id="@+id/action_notesFragment_to_addNoteFragment"
             app:destination="@id/addNoteFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/noteFragment"
         android:name="com.geekbrains.androidstart.notes.ui.NoteFragment"
@@ -26,4 +27,8 @@
         android:name="com.geekbrains.androidstart.notes.ui.AddNoteFragment"
         android:label="fragment_add_note"
         tools:layout="@layout/fragment_add_note" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.geekbrains.androidstart.notes.ui.AboutFragment"
+        android:label="AboutFragment" />
 </navigation>

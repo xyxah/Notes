@@ -31,15 +31,12 @@ class NoteFragment : Fragment() {
     }
 
     private fun initNote() {
-        if (arguments != null) {
-            val note: Note? = requireArguments().getParcelable("note")
-            if (note != null) {
-                val tvName: TextView? = view?.findViewById(R.id.tv_current_note_name)
-                if (tvName != null) tvName.text = note.name
+        arguments?.getParcelable<Note>("note")?.let { note ->
+            val tvName: TextView? = view?.findViewById(R.id.tv_current_note_name)
+            val tvDescription: TextView? = view?.findViewById(R.id.tv_current_note_description)
 
-                val tvDescription: TextView? = view?.findViewById(R.id.tv_current_note_description)
-                if (tvDescription != null) tvDescription.text = note.description
-            }
+            tvName?.text = note.name
+            tvDescription?.text = note.description
         }
     }
 }

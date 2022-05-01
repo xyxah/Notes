@@ -16,11 +16,11 @@
 
             <EditText
                 android:id="@+id/et_add_note_name"
+                style="@style/TextAppearance.MaterialComponents.Headline5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/et_add_note_name_hint"
                 android:inputType="text"
-                android:textSize="@dimen/et_add_note_text_size"
                 tools:ignore="Autofill" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -41,7 +41,5 @@
                 tools:ignore="Autofill" />
 
         </com.google.android.material.textfield.TextInputLayout>
-
     </LinearLayout>
-
 </layout>

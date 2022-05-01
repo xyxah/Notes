@@ -100,9 +100,12 @@ class NotesFragment : Fragment() {
 
         val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
         val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.second_fragment_container, noteFragment)
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-        fragmentTransaction.commit()
+
+        fragmentTransaction.apply {
+            replace(R.id.second_fragment_container, noteFragment)
+            setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            commit()
+        }
     }
 
     private fun navigateToAddNote() {
@@ -110,9 +113,12 @@ class NotesFragment : Fragment() {
             val addNoteFragment = AddNoteFragment()
             val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
             val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.second_fragment_container, addNoteFragment)
-            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-            fragmentTransaction.commit()
+
+            fragmentTransaction.apply {
+                replace(R.id.second_fragment_container, addNoteFragment)
+                setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                commit()
+            }
         } else navController.navigate(R.id.action_notesFragment_to_addNoteFragment)
     }
 

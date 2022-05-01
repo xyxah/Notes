@@ -11,7 +11,7 @@
 
         <TextView
             android:id="@+id/tv_current_note_name"
-            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -20,7 +20,7 @@
 
         <TextView
             android:id="@+id/tv_current_note_description"
-            style="@style/TextAppearance.MaterialComponents.Subtitle2"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/view_margin"
