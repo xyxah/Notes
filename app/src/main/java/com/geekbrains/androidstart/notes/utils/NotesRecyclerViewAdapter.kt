@@ -9,6 +9,8 @@ import com.geekbrains.androidstart.notes.R
 import com.geekbrains.androidstart.notes.pojo.Note
 import kotlinx.android.synthetic.main.note_item.view.*
 
+//1. Создайте список ваших заметок
+
 class NotesRecyclerViewAdapter(private val notes: ArrayList<Note>?) : RecyclerView.Adapter<NotesRecyclerViewAdapter.NoteViewHolder>() {
 
     var onClick : OnClickListener? = null

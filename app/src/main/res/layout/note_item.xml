@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <!-- 2. Создайте карточку для элемента списка. -->
+
     <TextView
         android:id="@+id/tv_note_name"
         style="@style/TextAppearance.MaterialComponents.Headline6"

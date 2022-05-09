@@ -13,6 +13,8 @@ import com.geekbrains.androidstart.notes.pojo.Note
 
 class NoteFragment : Fragment() {
 
+    //4. * Создайте фрагмент для редактирования данных в конкретной карточке.
+
     private lateinit var binding: FragmentNoteBinding
     private lateinit var oldNoteName: String
 
