@@ -4,9 +4,13 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 open class Utils {
-    open fun dateToString(date: Date, format: String, locale: Locale = Locale.getDefault()): String {
+    open fun dateToString(
+        date: Date,
+        format: String,
+        locale: Locale = Locale.getDefault()
+    ): String {
         val formatter = SimpleDateFormat(format, locale)
-        return formatter.format(this)
+        return formatter.format(date)
     }
 
     fun getCurrentDateTime(): Date {

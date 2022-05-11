@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_drawer_notes"
+        android:icon="@drawable/ic_drawer_notes"
+        android:title="@string/drawer_notes_title" />
+    <item
+        android:id="@+id/action_drawer_add_note"
+        android:icon="@drawable/ic_drawer_add_note"
+        android:title="@string/drawer_add_note_title" />
+    <item
+        android:id="@+id/action_drawer_about"
+        android:icon="@drawable/ic_drawer_about"
+        android:title="@string/drawer_about_title" />
+    <item
+        android:id="@+id/action_drawer_exit"
+        android:icon="@drawable/ic_drawer_about"
+        android:title="@string/drawer_exit_title" />
+</menu>
