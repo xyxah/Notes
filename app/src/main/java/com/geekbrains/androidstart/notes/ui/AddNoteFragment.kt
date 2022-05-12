@@ -9,6 +9,9 @@ import com.geekbrains.androidstart.notes.R
 import com.geekbrains.androidstart.notes.databinding.FragmentAddNoteBinding
 import com.geekbrains.androidstart.notes.utils.SaveNote
 
+// Урок 11
+// 1. Сделайте фрагмент добавления и редактирования данных, если вы ещё не сделали его.
+
 class AddNoteFragment : Fragment() {
 
     private lateinit var binding: FragmentAddNoteBinding
@@ -35,10 +38,12 @@ class AddNoteFragment : Fragment() {
         navController = Navigation.findNavController(view)
     }
 
+    // Урок 12
+    // Пример работы со списком заметок
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.save_note -> {
-                val sn = SaveNote(requireContext())
                 sn.saveNote(
                     requireContext(), null,
                     binding.etAddNoteName.text.toString(),

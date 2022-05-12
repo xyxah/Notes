@@ -12,6 +12,9 @@ import com.geekbrains.androidstart.notes.databinding.FragmentNoteBinding
 import com.geekbrains.androidstart.notes.pojo.Note
 import com.geekbrains.androidstart.notes.utils.SaveNote
 
+// Урок 11
+// 1. Сделайте фрагмент добавления и редактирования данных, если вы ещё не сделали его.
+
 class NoteFragment : Fragment() {
 
     private lateinit var binding: FragmentNoteBinding
@@ -39,6 +42,9 @@ class NoteFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.appbar_menu, menu)
     }
+
+    // Урок 12
+    // Пример работы со списком заметок
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {

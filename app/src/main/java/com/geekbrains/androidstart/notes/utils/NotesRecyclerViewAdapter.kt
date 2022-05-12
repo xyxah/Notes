@@ -1,17 +1,20 @@
 package com.geekbrains.androidstart.notes.utils
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.geekbrains.androidstart.notes.databinding.NoteItemBinding
 import com.geekbrains.androidstart.notes.pojo.Note
 
-class NotesRecyclerViewAdapter(private val notes: List<Note>) : RecyclerView.Adapter<NotesRecyclerViewAdapter.NoteViewHolder>() {
+class NotesRecyclerViewAdapter(private val notes: List<Note>) :
+    RecyclerView.Adapter<NotesRecyclerViewAdapter.NoteViewHolder>() {
 
-    var onClick : OnClickListener? = null
+    var onClick: OnClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
-        val itemBinding = NoteItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val itemBinding =
+            NoteItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return NoteViewHolder(itemBinding)
     }
 
@@ -28,16 +31,23 @@ class NotesRecyclerViewAdapter(private val notes: List<Note>) : RecyclerView.Ada
         holder.itemView.setOnClickListener {
             onClick?.onNoteClick(note)
         }
+
+        holder.itemView.setOnLongClickListener {
+            onClick?.onNoteLongClick(holder.itemView, note)
+            false
+        }
     }
 
-    inner class NoteViewHolder(private val itemBinding: NoteItemBinding) : RecyclerView.ViewHolder(itemBinding.root) {
+    inner class NoteViewHolder(private val itemBinding: NoteItemBinding) :
+        RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(note: Note) {
             itemBinding.tvNoteName.text = note.name
             itemBinding.tvNoteDate.text = note.date
         }
     }
 
-    interface OnClickListener{
-        fun onNoteClick(note:Note)
+    interface OnClickListener {
+        fun onNoteClick(note: Note)
+        fun onNoteLongClick(view: View, note: Note)
     }
 }

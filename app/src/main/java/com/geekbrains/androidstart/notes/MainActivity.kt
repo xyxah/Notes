@@ -33,14 +33,17 @@ class MainActivity : AppCompatActivity() {
         initDrawer(toolbar)
     }
 
+    // Урок 11
+    // 2. Сделайте навигацию между фрагментами, также организуйте обмен данными между фрагментами.
+
     private fun initDrawer(toolbar: Toolbar) {
         val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
         val toggle = ActionBarDrawerToggle(
             this,
             drawer,
             toolbar,
-            R.string.navigation_drawer_open,
-            R.string.navigation_drawer_close
+            R.string.nav_drawer_open,
+            R.string.nav_drawer_close
         )
         drawer.addDrawerListener(toggle)
         toggle.syncState()

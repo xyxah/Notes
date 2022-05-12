@@ -10,14 +10,22 @@
     <string name="drawer_notes_title">Заметки</string>
     <string name="drawer_exit_title">Выход</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_drawer_open">Open navigation drawer</string>
+    <string name="nav_drawer_close">Close navigation drawer</string>
     <string name="nav_drawer_title">GeekBrains</string>
-    <string name="toast_message_add_note">Заметка добавлена</string>
-    <string name="close_app_dialog_title">Выход из приложения</string>
-    <string name="close_app_dialog_message">Вы действительно хотите выйти?</string>
+
     <string name="yes">Да</string>
     <string name="no">Нет</string>
+    <string name="update">Изменить</string>
+    <string name="delete">Удалить</string>
+
+    <string name="close_app_dialog_title">Выход из приложения</string>
+    <string name="close_app_dialog_message">Вы действительно хотите выйти?</string>
     <string name="close_app_dialog_negative_btn_message">Мы рады, что вы остались с нами!</string>
+
+    <string name="toast_message_notes_list_clear">Список заметок пуст</string>
+    <string name="toast_message_add_note">Заметка добавлена</string>
     <string name="toast_message_update_note">Заметка обновлена</string>
+    <string name="toast_message_delete_note">Заметка удалена</string>
+
 </resources>

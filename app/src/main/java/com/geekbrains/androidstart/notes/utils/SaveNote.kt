@@ -5,6 +5,9 @@ import com.geekbrains.androidstart.notes.pojo.Note
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
 
+// Урок 12
+// Класс для управления списком заметок
+
 class SaveNote(context: Context) {
 
     private val KEY_NOTES = "NOTES"
@@ -24,19 +27,19 @@ class SaveNote(context: Context) {
         }
     }
 
-    private fun deleteNote(oldName: String?){
+    fun deleteNote(oldName: String?){
         val foundNote = notes?.find {
             it.name == oldName
         }
         notes?.remove(foundNote)
     }
 
-    private fun addNote(context: Context, note: Note){
+    fun addNote(context: Context, note: Note){
         notes?.add(note)
         MySharedPreferences(context, KEY_NOTES).saveArrayList(notes)
     }
 
-    private fun newListNotes(context: Context, note: Note){
+    fun newListNotes(context: Context, note: Note){
         val newNotes = arrayListOf<Note>()
         newNotes.add(note)
         MySharedPreferences(context, KEY_NOTES).saveArrayList(newNotes)
