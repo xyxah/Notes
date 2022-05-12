@@ -3,7 +3,6 @@ package com.geekbrains.androidstart.notes
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -12,17 +11,10 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.geekbrains.androidstart.notes.pojo.Note
-import com.geekbrains.androidstart.notes.utils.MySharedPreferences
-import com.geekbrains.androidstart.notes.utils.Utils
 import com.google.android.material.navigation.NavigationView
-import com.google.gson.reflect.TypeToken
-import java.lang.reflect.Type
-
 
 class MainActivity : AppCompatActivity() {
 
-    private val KEY_NOTES = "NOTES"
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
-        //setupActionBarWithNavController(navController)
         initToolbarAndDrawer()
     }
 
@@ -42,14 +33,17 @@ class MainActivity : AppCompatActivity() {
         initDrawer(toolbar)
     }
 
+    // Урок 11
+    // 2. Сделайте навигацию между фрагментами, также организуйте обмен данными между фрагментами.
+
     private fun initDrawer(toolbar: Toolbar) {
         val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
         val toggle = ActionBarDrawerToggle(
             this,
             drawer,
             toolbar,
-            R.string.navigation_drawer_open,
-            R.string.navigation_drawer_close
+            R.string.nav_drawer_open,
+            R.string.nav_drawer_close
         )
         drawer.addDrawerListener(toggle)
         toggle.syncState()
@@ -86,10 +80,10 @@ class MainActivity : AppCompatActivity() {
         builder.setTitle(getString(R.string.close_app_dialog_title))
         builder.setMessage(getString(R.string.close_app_dialog_message))
 
-        builder.setPositiveButton(getString(R.string.yes)) { dialog, which ->
+        builder.setPositiveButton(getString(R.string.yes)) { _, _ ->
             finish()
         }
-        builder.setNegativeButton(getString(R.string.no)) { dialog, which ->
+        builder.setNegativeButton(getString(R.string.no)) { _, _ ->
             Toast.makeText(
                 this,
                 getString(R.string.close_app_dialog_negative_btn_message),
@@ -98,40 +92,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         builder.show()
-    }
-
-    fun saveNote(oldNoteName: String?, etNoteName: EditText, etNoteDescription: EditText) {
-        val name = etNoteName.text.toString()
-        val description = etNoteDescription.text.toString()
-
-        val utils = Utils()
-        val date = utils.dateToString(utils.getCurrentDateTime(), "dd.MM.yyyy")
-        val newNote = Note(name, description, date)
-
-        val type: Type = object : TypeToken<ArrayList<Note>?>() {}.type
-        val notes = MySharedPreferences(this, KEY_NOTES).getArrayList<Note>(type)
-
-        if (notes != null) {
-            //Поиск и удаление старой заметки
-            if (oldNoteName != null) {
-                val findedNote = notes.find {
-                    it.name == oldNoteName
-                }
-                notes.remove(findedNote)
-            }
-
-            //Добавление новой заметки
-            notes.add(newNote)
-            MySharedPreferences(this, KEY_NOTES).saveArrayList(notes)
-        } else {
-            // Создание нового списка
-            val newNotes = arrayListOf<Note>()
-            newNotes.add(newNote)
-            MySharedPreferences(this, KEY_NOTES).saveArrayList(newNotes)
-        }
-
-        Toast.makeText(this, getString(R.string.toast_message_add_note), Toast.LENGTH_SHORT).show()
-        navController.popBackStack()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

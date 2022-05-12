@@ -2,14 +2,11 @@ package com.geekbrains.androidstart.notes.utils
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.geekbrains.androidstart.notes.pojo.Note
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
 
 class MySharedPreferences(context: Context, key: String) {
     private val KEY = key
-    private val notes = "NOTES"
     private val sharedPref: SharedPreferences = context.getSharedPreferences(key, Context.MODE_PRIVATE)
 
     fun clearSharedPreference() {
